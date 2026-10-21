@@ -1,0 +1,23 @@
+{
+  "skill_name": "sp500-dienos-pokytis",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Patikrink naujausią S&P 500 uždarymo reikšmę ir kiek punktų bei procentų ji pasikeitė nuo ankstesnės prekybos sesijos.",
+      "expected_output": "Naudojami švieži duomenys iš šaltinio, nurodytos abi sesijų datos, teisingai apskaičiuotas punktų ir procentinis pokytis bei pateikta šaltinio nuoroda.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Kiek dabar yra S&P 500 ir ar šiandien jis kyla, ar krenta?",
+      "expected_output": "Atskiriama intraday kotiruotė nuo paskutinio uždarymo, pateikiamas duomenų laikas ir vėlavimo statusas, jei žinomas; pokytis apskaičiuotas nuo paskutinio uždarymo.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Patikrink S&P 500 pokytį pirmadienio rytą po savaitgalio.",
+      "expected_output": "Naudojama paskutinė prieinama kotiruotė arba paskutinis uždarymas, palyginamas su ankstesnės prekybos sesijos uždarymu, o ne sekmadienio data; jokie duomenys neišgalvojami.",
+      "files": []
+    }
+  ]
+}
