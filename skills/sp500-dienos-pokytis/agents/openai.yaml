@@ -1,0 +1,4 @@
+interface:
+  display_name: "S&P 500 dienos pokytis"
+  short_description: "Patikrina S&P 500 reikšmę ir dienos pokytį"
+  default_prompt: "Patikrink naujausią S&P 500 reikšmę ir jos pokytį, palyginti su ankstesnės prekybos sesijos uždarymu."
