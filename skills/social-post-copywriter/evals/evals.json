@@ -1,0 +1,40 @@
+{
+  "skill_name": "social-post-copywriter",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use this analysis brief to write an Instagram post: {"company":"GreenCup","product_or_service":"Daugkartinis kavos puodelis","target_audience":"Studentai ir jauni suaugusieji","platform":"Instagram","known_attributes":["daugkartinio naudojimo"],"potential_audience_benefits":[{"benefit":"galimybė naudoti tą patį puodelį kasdieniams kavos ritualams","basis":"daugkartinio naudojimo","status":"interpretation"}],"core_message":"GreenCup – tavo daugkartinis kavos puodelis kasdieniams kavos ritualams.","recommended_tone":["draugiškas","neformalus","jaunatviškas"],"missing_information":["medžiaga","talpa","šilumos išlaikymas"],"notes":["Nepridėti nepatvirtintų produkto savybių"]}. Write only the first draft.",
+      "expected_output": "One natural Lithuanian Instagram caption consistent with the core message and reusable-cup fact, with no invented features, CTA, or hashtags.",
+      "files": [],
+      "expectations": [
+        "The caption is in Lithuanian and is suitable for Instagram and the stated audience.",
+        "The copy emphasizes a reusable coffee cup and everyday coffee rituals.",
+        "It does not claim an unprovided material, capacity, insulation, leak resistance, or environmental impact.",
+        "There is no call to action and no hashtag list."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write a LinkedIn draft from this brief: {"company":"Northstar","product_or_service":"notebook made from recycled paper","target_audience":"university students","platform":"LinkedIn","known_attributes":["made from recycled paper"],"potential_audience_benefits":[{"benefit":"can be used for study notes","basis":"notebook","status":"interpretation"}],"core_message":"A Northstar notebook made from recycled paper for everyday study notes.","recommended_tone":["clear","professional","approachable"],"missing_information":["price","paper quantity","manufacturing location"],"notes":["No other product details provided"]}. Do not add stage-three elements.",
+      "expected_output": "A concise professional LinkedIn caption that accurately describes the notebook and does not add unsupported claims or a CTA/hashtags.",
+      "files": [],
+      "expectations": [
+        "The draft is suitable for LinkedIn and university students.",
+        "The only product-specific material claim is that the notebook is made from recycled paper.",
+        "The draft contains no invented price, manufacturing location, durability claim, or quantified environmental benefit.",
+        "No CTA or hashtags are added."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Create a first social caption from this incomplete brief: company BrightPath; product or service: online language lessons; audience: null; platform: Instagram; known attributes: online language lessons; no languages, lesson format, prices, or outcomes supplied.",
+      "expected_output": "A cautious, general caption about online language lessons that does not invent language offerings, teaching methods, prices, or outcomes; note that audience information is missing.",
+      "files": [],
+      "expectations": [
+        "The draft does not name specific languages or claim particular teaching methods or results.",
+        "The editorial note identifies that audience information is missing.",
+        "The output includes one draft and does not include CTA or hashtags."
+      ]
+    }
+  ]
+}
