@@ -1,0 +1,4 @@
+interface:
+  display_name: "Social Post Workflow"
+  short_description: "Runs all three social post skills and returns only the final post"
+  default_prompt: "Run the full social-post workflow from the supplied company, product, audience, platform, and factual details. Apply analyzer, copywriter, then optimizer in order, and return only the final publication-ready post without intermediate outputs."
