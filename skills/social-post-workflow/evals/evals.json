@@ -3,37 +3,63 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Run the full social-post workflow. Company: GreenCup. Product: reusable coffee cup. Audience: students and young adults. Platform: Instagram. Only confirmed product fact: reusable. Return only the final publish-ready result.",
-      "expected_output": "One final Instagram post with a CTA and relevant hashtags, with no intermediate analysis or draft shown and no unsupported product claims.",
+      "prompt": "Run the full social-post workflow. Company: GreenCup. Product: reusable coffee cup. Audience: students and young adults. Platform: Instagram. Only confirmed product fact: reusable. Return only the final post, without checks or intermediate outputs.",
+      "expected_output": "One final Instagram caption with a low-pressure CTA and relevant hashtags; no intermediate analysis, draft, or final-check headings.",
       "files": [],
       "expectations": [
-        "Only the final optimized post is shown; no separate analyzer JSON or first draft is exposed.",
-        "The final post mentions GreenCup and the reusable coffee cup.",
+        "Only the final optimized post is shown.",
+        "The post mentions GreenCup and the reusable coffee cup.",
         "Includes a reasonable CTA and relevant hashtags.",
-        "Does not invent material, capacity, insulation, price, availability, or environmental impact."
+        "Does not invent material, capacity, insulation, price, availability, or environmental impact.",
+        "Does not show analyzer JSON, draft, internal reasoning, or final-check headings."
       ]
     },
     {
       "id": 2,
-      "prompt": "Run all three stages for Northstar: notebook made from recycled paper, audience university students, platform LinkedIn. No other product details are known. Output only the final post.",
-      "expected_output": "A polished LinkedIn post with CTA and restrained hashtags, without invented claims or intermediate-stage outputs.",
+      "prompt": "Run all three stages for Northstar: notebook made from recycled paper, audience university students, platform LinkedIn. No other product details are known. Return the standard workflow result.",
+      "expected_output": "A polished LinkedIn post with CTA and restrained hashtags, followed by concise final checks; no intermediate-stage outputs.",
       "files": [],
       "expectations": [
         "The final post is appropriate for LinkedIn and university students.",
-        "No durability, price, origin, or quantified environmental claim is invented.",
+        "Does not invent durability, price, origin, or quantified environmental impact.",
         "Includes a suitable CTA and a few relevant hashtags.",
+        "Includes concise CTA, hashtag, factual-accuracy, and open-item checks.",
         "Does not show internal stage outputs."
       ]
     },
     {
       "id": 3,
       "prompt": "Run the workflow with company BrightPath and product online language lessons. Audience and platform are missing, and no other details are provided. Do not invent facts.",
-      "expected_output": "Ask one concise clarification if the missing platform/audience materially prevents useful tailoring, or produce a conservative final result and note limitations; do not show intermediate analysis.",
+      "expected_output": "Either ask one concise clarification if needed, or produce a conservative general-purpose post with a brief limitation note. No intermediate analysis is shown.",
       "files": [],
       "expectations": [
-        "Does not invent languages offered, prices, methods, guarantees, or results.",
-        "Only final user-facing content is shown, not intermediate skill outputs.",
-        "Missing essential information is handled with a concise question or a clear limitation note."
+        "Does not invent languages offered, prices, teaching methods, guarantees, or learning results.",
+        "Missing information is handled with a concise question or a clear limitation note.",
+        "Only final user-facing content is shown, not intermediate-stage outputs."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Run the workflow for ArtHomes. Product/service: construction and sale of distinctive houses. Audience: people interested in housing. Platform: Instagram. Confirmed claims: luxurious, high-quality homes. Goal: product awareness. Return only the final caption.",
+      "expected_output": "A Lithuanian Instagram caption that stays within the supplied claims, has a generic CTA and relevant hashtags, and contains no intermediate outputs or check headings.",
+      "files": [],
+      "expectations": [
+        "Preserves ArtHomes and the supplied service description.",
+        "Does not invent location, prices, materials, energy efficiency, availability, construction timelines, or guarantees.",
+        "Uses a low-pressure CTA that does not invent a website or contact route.",
+        "Hashtags are relevant and do not add unsupported factual claims.",
+        "Returns only the caption because the prompt explicitly asks for it."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "The user asks to run social-post-workflow, but the optimizer SKILL.md cannot be read. Continue if useful without claiming all stages ran.",
+      "expected_output": "Briefly disclose the unavailable instruction file and offer or provide a conservative result based on available instructions, without claiming full workflow execution.",
+      "files": [],
+      "expectations": [
+        "Does not claim all three stages were executed.",
+        "Discloses the missing instruction file succinctly.",
+        "Does not invent the unavailable optimizer's rules."
       ]
     }
   ]
