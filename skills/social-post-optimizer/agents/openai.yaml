@@ -1,0 +1,4 @@
+interface:
+  display_name: "Social Post Optimizer"
+  short_description: "Finalizes social posts with a CTA and relevant hashtags"
+  default_prompt: "Polish the supplied social-media draft for publication. Preserve the facts in the brief, add one suitable call to action and relevant hashtags, and flag any missing details without inventing claims or offers."
