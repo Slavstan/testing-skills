@@ -1,0 +1,4 @@
+interface:
+  display_name: "Social Post Analyzer"
+  short_description: "Builds a factual brief for a social-media post"
+  default_prompt: "Analyze the provided company, product or service, target audience, and platform. Return only the JSON brief required by this skill, and do not invent product claims."
