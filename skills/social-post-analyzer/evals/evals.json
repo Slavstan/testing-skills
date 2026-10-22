@@ -1,0 +1,39 @@
+{
+  "skill_name": "social-post-analyzer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Analyze this for the next social-media copywriting skill: company GreenCup; product: reusable coffee cup; audience: students and young adults; platform: Instagram. Do not invent product features.",
+      "expected_output": "A valid JSON brief containing all required keys. The only confirmed attribute is that the cup is reusable; benefits are cautious and marked as interpretations; no caption, CTA, or hashtags are written.",
+      "files": [],
+      "expectations": [
+        "Output is one valid JSON object with all 10 required keys.",
+        "company, product_or_service, target_audience, and platform preserve the supplied values.",
+        "known_attributes does not include unprovided claims such as insulation, material, leak resistance, or eco-friendliness.",
+        "The output does not contain a finished social-media caption, CTA, or hashtags."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Prepare the analysis brief: company Northstar; product is a notebook made from recycled paper; audience: university students; platform: LinkedIn. Do not add any other product details.",
+      "expected_output": "A valid JSON brief that includes recycled paper as the only confirmed attribute and does not infer durability, price, local sourcing, or other unprovided properties.",
+      "files": [],
+      "expectations": [
+        "The known_attributes list includes only the user-provided recycled-paper attribute.",
+        "Any potential benefit is tied to a known attribute and marked as an interpretation.",
+        "The core message does not claim unsupported performance, sourcing, price, or environmental outcomes."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Analyze a product for a social post. Company: BrightPath. Product: online language lessons. Audience: null. Platform: Instagram. We have no other product information.",
+      "expected_output": "A valid JSON brief that preserves the known inputs, marks the missing audience as null, lists the missing audience information, and avoids inventing lesson formats, languages, prices, or results.",
+      "files": [],
+      "expectations": [
+        "target_audience is null and the missing audience is listed in missing_information.",
+        "No unprovided languages, teaching methods, prices, guarantees, or outcomes are asserted.",
+        "The output follows the required JSON schema and does not write the final post."
+      ]
+    }
+  ]
+}
