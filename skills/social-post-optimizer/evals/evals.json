@@ -1,0 +1,41 @@
+{
+  "skill_name": "social-post-optimizer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Optimize this Instagram draft for publication using the supplied brief. Brief: {\"company\":\"GreenCup\",\"product_or_service\":\"Daugkartinis kavos puodelis\",\"target_audience\":\"Studentai ir jauni suaugusieji\",\"platform\":\"Instagram\",\"known_attributes\":[\"daugkartinio naudojimo\"],\"potential_audience_benefits\":[{\"benefit\":\"galimybė naudoti tą patį puodelį kasdieniams kavos ritualams\",\"basis\":\"daugkartinio naudojimo\",\"status\":\"interpretation\"}],\"core_message\":\"GreenCup – tavo daugkartinis kavos puodelis kasdieniams kavos ritualams.\",\"recommended_tone\":[\"draugiškas\",\"neformalus\",\"jaunatviškas\"],\"missing_information\":[\"medžiaga\",\"talpa\",\"šilumos išlaikymas\"],\"notes\":[\"Nepridėti nepatvirtintų produkto savybių\"]}. Draft: \"GreenCup – tavo daugkartinis kavos puodelis kasdieniams kavos ritualams. ☕\". Return the optimized post.",
+      "expected_output": "A publication-ready Lithuanian Instagram caption with a natural CTA and relevant hashtags, without unsupported product claims.",
+      "files": [],
+      "expectations": [
+        "Includes a clear but non-coercive CTA.",
+        "Includes relevant hashtags appropriate to GreenCup and reusable coffee cups.",
+        "Does not claim unprovided materials, insulation, leak resistance, environmental impact, price, or availability.",
+        "Keeps a friendly, informal tone suitable for the supplied audience and Instagram."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Optimize this LinkedIn post for publication. Brief: {\"company\":\"Northstar\",\"product_or_service\":\"notebook made from recycled paper\",\"target_audience\":\"university students\",\"platform\":\"LinkedIn\",\"known_attributes\":[\"made from recycled paper\"],\"potential_audience_benefits\":[{\"benefit\":\"can be used for study notes\",\"basis\":\"notebook\",\"status\":\"interpretation\"}],\"core_message\":\"A Northstar notebook made from recycled paper for everyday study notes.\",\"recommended_tone\":[\"clear\",\"professional\",\"approachable\"],\"missing_information\":[\"price\",\"paper quantity\",\"manufacturing location\"],\"notes\":[\"No other product details provided\"]}. Draft: \"A Northstar notebook made from recycled paper for everyday study notes.\"",
+      "expected_output": "A concise, professional LinkedIn post with a relevant CTA and restrained hashtags, without inventing details or environmental outcomes.",
+      "files": [],
+      "expectations": [
+        "CTA is appropriate for a professional audience and does not imply a discount or offer.",
+        "Hashtags are relevant and not excessive.",
+        "Does not invent price, manufacturing location, durability, or quantified environmental benefits.",
+        "Preserves the supplied core message and professional tone."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Optimize this draft, but the brief has no confirmed product attributes beyond the service name. Brief: {\"company\":\"BrightPath\",\"product_or_service\":\"online language lessons\",\"target_audience\":null,\"platform\":\"Instagram\",\"known_attributes\":[],\"potential_audience_benefits\":[],\"core_message\":\"BrightPath – online language lessons.\",\"recommended_tone\":[\"clear\",\"friendly\"],\"missing_information\":[\"target audience\",\"languages offered\",\"lesson format\"],\"notes\":[\"No specific languages, methods, prices, or results provided\"]}. Draft: \"BrightPath – online language lessons.\"",
+      "expected_output": "A cautious Instagram post with a generic CTA and relevant broad hashtags, explicitly noting the missing audience if needed, without inventing languages, methods, prices, or outcomes.",
+      "files": [],
+      "expectations": [
+        "Does not name any specific language or promise learning outcomes.",
+        "CTA remains generic and does not imply an unprovided offer.",
+        "Hashtags are broad and relevant rather than claiming specific languages.",
+        "Notes the important limitation from missing audience or service details."
+      ]
+    }
+  ]
+}
