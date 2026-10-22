@@ -1,0 +1,40 @@
+{
+  "skill_name": "social-post-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run the full social-post workflow. Company: GreenCup. Product: reusable coffee cup. Audience: students and young adults. Platform: Instagram. Only confirmed product fact: reusable. Return only the final publish-ready result.",
+      "expected_output": "One final Instagram post with a CTA and relevant hashtags, with no intermediate analysis or draft shown and no unsupported product claims.",
+      "files": [],
+      "expectations": [
+        "Only the final optimized post is shown; no separate analyzer JSON or first draft is exposed.",
+        "The final post mentions GreenCup and the reusable coffee cup.",
+        "Includes a reasonable CTA and relevant hashtags.",
+        "Does not invent material, capacity, insulation, price, availability, or environmental impact."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Run all three stages for Northstar: notebook made from recycled paper, audience university students, platform LinkedIn. No other product details are known. Output only the final post.",
+      "expected_output": "A polished LinkedIn post with CTA and restrained hashtags, without invented claims or intermediate-stage outputs.",
+      "files": [],
+      "expectations": [
+        "The final post is appropriate for LinkedIn and university students.",
+        "No durability, price, origin, or quantified environmental claim is invented.",
+        "Includes a suitable CTA and a few relevant hashtags.",
+        "Does not show internal stage outputs."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Run the workflow with company BrightPath and product online language lessons. Audience and platform are missing, and no other details are provided. Do not invent facts.",
+      "expected_output": "Ask one concise clarification if the missing platform/audience materially prevents useful tailoring, or produce a conservative final result and note limitations; do not show intermediate analysis.",
+      "files": [],
+      "expectations": [
+        "Does not invent languages offered, prices, methods, guarantees, or results.",
+        "Only final user-facing content is shown, not intermediate skill outputs.",
+        "Missing essential information is handled with a concise question or a clear limitation note."
+      ]
+    }
+  ]
+}
