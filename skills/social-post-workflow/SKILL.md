@@ -1,62 +1,67 @@
 ---
 name: social-post-workflow
-description: Run the complete three-stage social-media publishing workflow from a short user brief: analyze the facts, write a first caption, optimize it with a CTA and hashtags, and show the user only the final result. Use when the user asks to create a social post end to end or to run the social-post skills together.
+description: Orchestrate the analyzer, copywriter, and optimizer skills to create a fact-grounded, platform-appropriate social post from a short brief. Use when the user asks for an end-to-end social post or to run the social-post skills together.
 ---
 
 # Social Post Workflow
 
 ## Purpose
 
-Orchestrate the three existing skills as one end-to-end task and return only the final publication-ready result. Do not expose intermediate analysis JSON, first-draft copy, or internal handoff notes unless the user explicitly requests them.
+Create one publication-ready social post by applying the three stage skills in order. Keep intermediate analysis, JSON, drafts, and handoff notes internal unless the user explicitly asks to see them.
 
-## Skills to run, in order
+## Required stage instructions
 
-1. `social-post-analyzer` — read `../social-post-analyzer/SKILL.md` and follow its instructions to produce a factual brief.
-2. `social-post-copywriter` — read `../social-post-copywriter/SKILL.md` and follow its instructions using the brief from stage 1 to produce a first caption.
-3. `social-post-optimizer` — read `../social-post-optimizer/SKILL.md` and follow its instructions using both the original brief and the draft from stage 2 to create the final post.
+Read and follow all three files before processing the brief:
 
-Resolve these paths relative to this workflow's directory under `skills/`. If the environment provides a mechanism for invoking named skills directly, invoke the named skill at each stage. Otherwise, follow the relevant `SKILL.md` instructions in sequence as part of this workflow. Do not claim that separate skills were independently executed if the environment only supports following their instructions in one orchestrated run.
+1. `../social-post-analyzer/SKILL.md` — extract facts and create the structured brief.
+2. `../social-post-copywriter/SKILL.md` — write one draft from that brief.
+3. `../social-post-optimizer/SKILL.md` — finalize the draft with platform-aware editing, a suitable CTA, hashtags, and final checks.
 
-## User input
+Resolve paths relative to this workflow's directory under `skills/`. If the environment can invoke named skills directly, invoke them in order. Otherwise, follow their files sequentially. Never claim that separate skills were independently executed if you only followed their instructions in one orchestrated run. If any required file is unavailable, say so briefly and do not claim full workflow execution; you may still help using the instructions that are available.
 
-Accept ordinary text or structured fields. Collect what is available:
+## Input handling
+
+Accept ordinary text, structured fields, or a supplied draft. Use available information about:
 
 - Company or brand
 - Product or service
 - Target audience
 - Social platform
-- Known product facts or approved claims
-- Optional draft, campaign goal, link, offer, or CTA preference
+- Confirmed product facts and approved claims
+- Optional campaign goal, existing draft, destination URL, offer, preferred CTA, and brand voice
 
-Do not force JSON input. If the product or service cannot be identified, ask one concise clarifying question before proceeding. If audience or platform is missing but a conservative useful result is possible, continue and note the limitation only if it matters to the final result.
+Do not require JSON from the user. Normalize obvious spelling errors only when the intended meaning is clear; do not silently reinterpret ambiguous audience or product descriptions. If the product or service cannot be identified, ask one concise clarifying question. If audience or platform is missing, continue with a conservative general-purpose result when useful and disclose the limitation only if it materially affects the post.
 
 ## Execution contract
 
-1. Read the three stage instructions before running the pipeline. Do not edit their files as part of an ordinary workflow run.
-2. Run stage 1 internally. Preserve its JSON brief as internal workflow data.
-3. Pass that brief to stage 2. Keep the resulting draft as internal workflow data.
-4. Pass both the original brief and stage-2 draft to stage 3.
-5. Validate the final post against the original user input and brief. Remove any unsupported product claims, fabricated offers, fake links, fabricated testimonials, and claims of guaranteed reach or engagement.
-6. Show the user only stage 3's final output. Do not include stage 1 JSON, stage 2 draft, internal reasoning, or progress updates.
-7. If a required detail is missing and prevents a safe or useful final post, ask one concise question instead of fabricating it. Otherwise finish with a conservative result and note a material limitation in the final output.
-8. Do not publish, schedule, or post to an external account. This workflow creates copy only unless a separately authorized publishing integration is explicitly available and the user requests that action.
+1. Read the stage instructions; do not edit skill files during an ordinary workflow run.
+2. Run the analyzer internally and retain its valid JSON brief.
+3. Give that brief to the copywriter and retain one draft.
+4. Give the original brief and draft to the optimizer.
+5. Check the optimizer's result against the user's original input. Remove or qualify unsupported claims, fabricated offers, fake links, testimonials, certifications, product specifications, and promises of reach or engagement.
+6. Preserve the user's requested language, brand spelling, campaign goal, and any explicit constraints unless they conflict with factual accuracy or safety.
+7. Do not turn inferred benefits into verified product claims. Treat a claim as confirmed only when supplied by the user or supported by a source the task explicitly authorizes and that was actually checked.
+8. A CTA must be actionable without inventing a destination, availability, offer, or link. If a destination is missing, use a low-pressure generic CTA or state what should be supplied.
+9. If a missing detail prevents a safe or useful result, ask one concise question. Otherwise, produce a conservative post and mention only material limitations.
+10. This workflow creates copy only. Do not publish, schedule, message, or modify external accounts unless a suitable integration is available and the user explicitly requests that action.
 
 ## Final response
 
-Use the output format defined by `social-post-optimizer/SKILL.md`:
+Default to the optimizer's output structure:
 
-- Platform
-- Final post, including a suitable CTA and relevant hashtags
-- Concise final checks for CTA, hashtags, factual accuracy, and any open item
+- **Platform**
+- **Final post** with one suitable CTA and a small, relevant set of hashtags
+- **Final checks** covering CTA, hashtags, factual accuracy, and any open item
 
-The final post should be easy to copy and publish. Do not add an explanation of the three internal stages. Do not show intermediate results.
+If the user explicitly asks to see only the post/caption, return only the copy-ready post and omit the headings and checks. If the user asks for an audit or explanation, provide that separately without exposing intermediate stage outputs unless requested. Do not show analyzer JSON, the first draft, internal reasoning, or progress updates by default.
 
 ## Quality checklist
 
-Before returning the answer, confirm:
+Before responding, verify:
 
-- All three stages were applied in the prescribed order, or any environment limitation was handled transparently.
-- The final post is grounded in facts provided by the user.
-- The CTA does not invent a destination, offer, or availability.
-- Hashtags are relevant and do not introduce unsupported claims.
-- The only user-visible content is the final result, unless clarification is required.
+- All three stages were applied in order, or any missing-file/tool limitation is disclosed accurately.
+- The final copy matches the user's language, brand, audience, platform, and goal as far as the brief allows.
+- Every factual product claim is grounded in supplied or actually verified information.
+- CTA and hashtags are relevant and do not imply unsupported claims, offers, links, or guaranteed performance.
+- The response follows the user's requested output mode: full final result or only the post.
+- No external publishing action was taken without explicit authorization.
